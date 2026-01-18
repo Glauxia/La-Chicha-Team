@@ -84,6 +84,21 @@ body {
     margin-right: 20px;
 }
 
+/* --- QUITAR ESTILO POR DEFECTO AL BOTÓN --- */
+.hamburger-icon {
+    background: none;  /* Quita el fondo blanco/gris del botón */
+    border: none;      /* Quita el borde del botón */
+    padding: 0;        /* Quita el espacio interno */
+    cursor: pointer;   /* Mantiene la manito al pasar el mouse */
+    display: flex;     /* Ayuda a centrar la imagen dentro */
+}
+
+/* Tu estilo actual para la imagen se mantiene igual */
+.hamburger-icon img { 
+    width: 28px; 
+    display: block;
+}
+
 /* Centro */
 .header-center { flex: 1; display: flex; justify-content: center; }
 .logo img {
@@ -102,7 +117,7 @@ body {
     position: absolute;
     top: -5px; right: -8px;
     background-color: #000; color: #fff;
-    font-size: 0.65rem; font-weight: bold;
+    font-size: 0.65rem;
     width: 16px; height: 16px;
     border-radius: 50%;
     display: flex; justify-content: center; align-items: center;
@@ -772,7 +787,7 @@ body {
 }
 
 .payment-icons img {
-    height: 25px; /* Altura de los logos de tarjetas/bancos */
+    height: 50px; /* Altura de los logos de tarjetas/bancos */
     width: auto;
 }
 
