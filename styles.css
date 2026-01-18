@@ -1,0 +1,798 @@
+/* --- RESET BÁSICO --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Dela Gothic One', sans-serif; }
+
+
+/* --- CONFIGURACIÓN GLOBAL --- */
+html {
+    scroll-behavior: smooth; /* <--- ESTO HACE LA MAGIA DEL DESLIZAMIENTO */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Dela Gothic One', sans-serif;
+    /* ... resto de tu código ... */
+}
+
+/* --- CAMBIO GLOBAL DE FUENTE --- */
+body {
+    /* Cambiamos Montserrat por Dela Gothic One */
+    font-family: 'Dela Gothic One', sans-serif; 
+    
+    /* Nota: Dela Gothic One ya es muy gruesa por defecto, 
+       así que el font-weight no variará mucho, pero se verá genial */
+}
+
+/* --- REVISA TUS BOTONES --- */
+/* Asegúrate de actualizar también tus botones si tenían la fuente escrita manualmente */
+.btn-conoce-mas, 
+.btn-black, 
+.nav-links a,
+.section-title-left {
+    font-family: 'Dela Gothic One', sans-serif;
+    /* Puedes quitar font-weight: 900; porque esta fuente ya es pesada por naturaleza */
+    font-weight: 400; 
+}
+
+
+/* --- 1. BARRA SUPERIOR (IMAGEN) --- */
+.top-banner-container {
+    width: 100%;
+    background-color: #000; /* Fondo negro por si la imagen no carga rápido */
+    line-height: 0; /* Elimina espacios extra debajo de la imagen */
+}
+
+.banner-img {
+    width: 100%;
+    height: auto; /* Mantiene la proporción para que no se estire feo */
+    display: block;
+    object-fit: cover; /* Asegura que cubra bien el espacio */
+}
+
+/* --- 2. HEADER CENTRAL (CON TU PNG DE FONDO) --- */
+.main-header {
+    /* AQUÍ LA MAGIA: Reemplaza 'tu-degradado.png' con el nombre de tu archivo */
+    background-image: url('RecursosdeMarca/header\ difuminado.png'); 
+    
+    /* Esto asegura que tu imagen cubra todo el fondo */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    padding: 15px 20px;
+    position: relative;
+}
+
+.container { max-width: 1400px; margin: 0 auto; }
+.header-flex { display: flex; justify-content: space-between; align-items: center; }
+
+/* Izquierda */
+.header-left { display: flex; align-items: center; gap: 25px; flex: 1; }
+.hamburger-icon img { width: 28px; cursor: pointer; display: block;
+
+}
+.top-text-nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 400;
+    font-size: 0.9rem;
+    margin-right: 20px;
+}
+
+/* Centro */
+.header-center { flex: 1; display: flex; justify-content: center; }
+.logo img {
+    max-height: 100px; /* Ajusta el tamaño de tu logo aquí */
+    transition: transform 0.2s;
+}
+.logo img:hover { transform: scale(1.05); }
+
+/* Derecha */
+.header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 20px; }
+.icon-link img { width: 24px; display: block; filter: brightness(0); } /* Iconos negros */
+
+/* Carrito */
+.cart-wrapper { position: relative; }
+.cart-count {
+    position: absolute;
+    top: -5px; right: -8px;
+    background-color: #000; color: #fff;
+    font-size: 0.65rem; font-weight: bold;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+}
+
+/* --- 3. NAVEGACIÓN INFERIOR --- */
+.bottom-nav { background-color: #000; padding: 15px 0; }
+.nav-links {
+    display: flex; justify-content: center; gap: 50px;
+    list-style: none; flex-wrap: wrap;
+}
+.nav-links a {
+    text-decoration: none; color: #fff;
+    font-weight: 400; font-size: 0.95rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px #333;
+}
+.nav-links a:hover { color: #ccff00; }
+
+
+
+
+/* --- SECCIÓN HERO (BIENVENIDA) --- */
+.hero-section {
+    /* Reemplaza con el nombre de tu imagen de fondo que tiene el texto */
+    background-image: url('RecursosdeMarca/BANNER\ PRINCIPAL\ HOVER.jpg');
+    
+    /* Asegura que la imagen cubra todo el espacio sin repetirse */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Altura de la sección. 85vh significa el 85% del alto de la pantalla */
+    height: 85vh; 
+    min-height: 600px; /* Altura mínima para que no se achique mucho en pantallas chicas */
+
+    /* Usamos Flexbox para alinear el botón abajo al centro */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Alinea el contenido al final (abajo) */
+    align-items: center;       /* Centra horizontalmente */
+    padding-bottom: 68px;      /* Espacio desde el borde inferior */
+}
+
+/* Botón de bajar (el conjunto de flechas) */
+.scroll-down-btn {
+    display: flex;
+    flex-direction: column; /* Apila las flechas una debajo de otra */
+    align-items: center;
+    gap: -5px; /* Un pequeño valor negativo para que estén más juntitas */
+    cursor: pointer;
+    text-decoration: none; /* Quita subrayados por si acaso */
+    
+    /* AQUÍ ESTÁ LA ANIMACIÓN DE ZOOM */
+    transition: transform 0.3s ease; /* Suaviza el cambio de tamaño */
+}
+
+/* Al pasar el mouse, el botón completo crece un poco */
+.scroll-down-btn:hover {
+    transform: scale(1.2); /* Zoom del 20% más grande */
+}
+
+/* Estilo de cada flechita individual */
+.arrow-icon {
+    width: 45px; /* Ajusta el tamaño de las flechas aquí */
+    height: auto;
+    display: block;
+    /* Truco opcional: si tu icono de flecha es negro, esto lo vuelve blanco */
+    /* filter: brightness(0) invert(1); */
+}
+
+/* --- RESPONSIVE (Para celulares) --- */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 70vh; /* Un poco menos alto en celulares */
+        min-height: 400px;
+    }
+    .arrow-icon {
+        width: 35px; /* Flechas un poco más chicas en móvil */
+    }
+}
+
+
+
+/* --- SECCIÓN PRÓXIMOS EVENTOS (CORREGIDO) --- */
+.eventos-section {
+    margin: 0px 0;
+    background-color: #fff;
+}
+
+.stock-banner {
+    width: 100%;
+    line-height: 0;
+}
+
+.banner-img-full {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.eventos-content {
+    display: flex;
+    justify-content: center; /* Centra todo en la pantalla */
+    padding: 0 20px; /* Un poco de margen en celulares */
+}
+
+/* --- Wrapper Relativo (La clave para posicionar el botón) --- */
+.relative-wrapper {
+    position: relative; /* Esto crea la referencia para el botón flotante */
+    display: inline-block; /* Se ajusta al tamaño exacto de la imagen */
+    max-width: 100%;
+}
+
+.eventos-main-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- ESTILO DEL BOTÓN CORREGIDO Y AUMENTADO --- */
+.btn-conoce-mas {
+    /* 1. POSICIONAMIENTO (Tus coordenadas exactas) */
+    position: absolute;
+    bottom: 120px; 
+    right: 300px;  
+    
+    /* 2. ESTÉTICA */
+    background-color: #00FF00; /* Verde Neón */
+    color: #000;
+    
+    /* CAMBIO: Borde más grueso para acompañar el tamaño */
+    border: 4px solid #000; 
+    
+    /* CAMBIO: Bordes un poco más redondeados */
+    border-radius: 20px;    
+    
+    /* 3. TIPOGRAFÍA Y TAMAÑO (AQUÍ ESTÁ EL CAMBIO PRINCIPAL) */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    
+    /* CAMBIO: Letra más grande (antes 1.1rem) */
+    font-size: 1.6rem; 
+    
+    /* CAMBIO: Botón más ancho y alto (antes 12px 30px) */
+    padding: 15px 50px; 
+    
+    text-decoration: none;
+    text-transform: uppercase;
+    
+    /* Sombra Rosada Sólida */
+    box-shadow: 6px 6px 0px #FF0099; /* Sombra un pelín más grande */
+    
+    transition: transform 0.2s;
+    z-index: 10;
+}
+
+/* El efecto hover se mantiene igual */
+.btn-conoce-mas:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0px #FF0099;
+    background-color: #ccff00;
+}
+/* --- RESPONSIVE (Celulares) --- */
+@media (max-width: 600px) {
+    .btn-conoce-mas {
+        position: relative; /* En celular, a veces es mejor que baje */
+        bottom: auto;
+        right: auto;
+        display: block;
+        margin: -20px auto 20px; /* Lo sube un poco para pisar la imagen */
+        width: fit-content;
+    }
+}
+
+/* --- SECCIÓN LO MÁS CHICHA --- */
+.mas-chicha-section {
+    padding: 60px 0;
+    background-color: #fff; /* Fondo blanco limpio */
+}
+
+/* Cabecera (Título y Botón alineados) */
+.section-header {
+    display: flex;
+    justify-content: space-between; /* Título a la izq, botón a la der */
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.section-title-left {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-weight: 400; /* Extra negrita */
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.btn-black {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-black:hover {
+    background-color: #333; /* Gris oscuro al pasar el mouse */
+}
+
+/* Grilla grande de productos */
+.products-grid-large {
+    display: grid;
+    /* 5 columnas iguales */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 30px 20px; /* 30px vertical, 20px horizontal */
+}
+
+/* Tarjeta de producto simple */
+.product-card-simple {
+    text-align: left; /* Texto alineado a la izquierda */
+}
+
+.product-img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Hace que la imagen sea cuadrada automáticamente */
+    object-fit: cover;
+    border-radius: 15px; /* Esquinas redondeadas como en la foto */
+    background-color: #000000; /* Fondo negro mientras carga la imagen */
+    margin-bottom: 10px;
+    display: block;
+}
+
+.product-info h3 {
+    font-size: 0.9rem;
+    font-weight: 400; /* Negrita fuerte */
+    margin-bottom: 4px;
+    color: #000;
+}
+
+.price {
+    font-size: 0.85rem;
+    color: #555; /* Un gris oscuro para el precio */
+    font-weight: 400;
+}
+
+/* --- RESPONSIVE (Para celulares) --- */
+@media (max-width: 900px) {
+    .products-grid-large {
+        /* En tablet bajamos a 3 columnas */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .products-grid-large {
+        /* En celular bajamos a 2 columnas */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .section-title-left {
+        font-size: 1.5rem; /* Título más pequeño en móvil */
+    }
+}
+
+/* --- SECCIÓN DE RESEÑAS --- */
+.reviews-section {
+    /* REEMPLAZA CON TU IMAGEN DE FONDO */
+    background-image: url('RecursosdeMarca/fondo\ 1.png');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px 80px; /* Un poco más de espacio abajo para los puntos */
+    text-align: center;
+}
+
+/* Título */
+.reviews-title {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-weight: 400; /* Extra negrita */
+    font-size: 2rem;
+    color: #000; /* Color negro como en la imagen */
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+/* Cuadrícula de tarjetas */
+.reviews-grid {
+    display: grid;
+    /* 3 columnas iguales para pantallas grandes */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; /* Espacio entre tarjetas */
+    margin-bottom: 40px;
+}
+
+/* Estilo de cada tarjeta negra */
+.review-card {
+    background-color: #000;
+    color: #fff; /* Texto blanco */
+    border-radius: 30px; /* Bordes muy redondeados */
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Sombra suave para dar profundidad */
+}
+
+/* Texto de la reseña */
+.review-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+/* Estrellas */
+.stars {
+    color: #FF9900; /* Color naranja exacto para las estrellas */
+    font-size: 1.8rem;
+    letter-spacing: 5px; /* Espacio entre estrellas */
+    margin-bottom: 20px;
+}
+
+/* Nombre del cliente */
+.reviewer-name {
+    font-weight: 400;
+    font-size: 1.1rem;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* --- Puntos de navegación --- */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #000; /* Círculo con borde negro */
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* Estilo para el punto activo (relleno) */
+.dot.active {
+    background-color: #000; /* El punto central es negro sólido */
+}
+
+/* --- RESPONSIVE (Para celulares y tablets) --- */
+@media (max-width: 900px) {
+    .reviews-grid {
+        /* En pantallas más chicas, una sola columna */
+        grid-template-columns: 1fr;
+        max-width: 500px; /* Limitamos el ancho para que no se vean gigantes */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* --- SECCIÓN COLECCIÓN --- */
+.collection-section {
+    /* Orden: Arriba | Derecha | Abajo | Izquierda */
+    margin: 0 0 40px 0; 
+}
+
+/* 1. Banner GIF */
+.collection-banner {
+    width: 100%;
+    background-color: #000; /* Fondo negro por si el GIF tarda en cargar */
+    line-height: 0; /* Elimina espacio extra debajo de la imagen */
+}
+
+.banner-gif {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 2. Contenedor del Carrusel */
+.carousel-container {
+    /* Hereda el max-width de 1400px y el centrado de la clase .container global */
+    padding-top: 20px; /* Espacio entre el banner GIF y las fotos */
+}
+
+/* Flechas de Navegación */
+.carousel-header {
+    display: flex;
+    justify-content: flex-end; /* Alinea las flechas a la derecha */
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-right: 10px;
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.nav-arrow:hover {
+    color: #ff0099; /* Color rosado al pasar el mouse */
+}
+
+/* Cuadrícula de 5 Productos */
+.product-grid-5 {
+    display: grid;
+    /* Crea 5 columnas de igual ancho */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px; /* Espacio entre las fotos */
+}
+
+/* Ítem de Producto Vertical */
+.product-item-tall {
+    position: relative;
+    /* Crea el rectángulo vertical negro */
+    aspect-ratio: 2 / 3; /* Relación de aspecto vertical (ancho / alto) */
+    background-color: #000; /* Color de fondo negro como en la referencia */
+    overflow: hidden; /* Asegura que la imagen no se salga del rectángulo */
+}
+
+.product-item-tall img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen cubre todo el rectángulo sin deformarse */
+    display: block;
+    transition: transform 0.3s;
+}
+
+/* Efecto al pasar el mouse sobre una foto */
+.product-item-tall:hover img {
+    transform: scale(1.05); /* Pequeño zoom */
+}
+
+/* --- RESPONSIVE (Para celulares) --- */
+@media (max-width: 768px) {
+    .product-grid-5 {
+        /* En celular, mostramos 2 columnas en lugar de 5 */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
+    }
+    /* Opcional: Ocultar las flechas en móvil si se va a usar scroll táctil */
+    .carousel-header {
+        display: none; 
+    }
+}
+
+/* --- SECCIÓN NEWSLETTER --- */
+.newsletter-section {
+    /* Reemplaza con el nombre de tu archivo de fondo */
+    background-image: url('RecursosdeMarca/fondo\ suscribete\ al\ boletin.png'); 
+    background-size: 100% 100%; /* Estira la imagen para cubrir todo el cuadro */
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    padding: 100px 20px; /* Mucho relleno arriba/abajo para no tapar el marco */
+    text-align: center;
+    margin: 0px 0; /* Un poco de aire fuera de la sección */
+}
+
+.newsletter-content {
+    max-width: 800px; /* Ancho máximo para que el texto no se abra demasiado */
+    margin: 0 auto;
+}
+
+/* Título Grande */
+.newsletter-content h2 {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-weight: 400; /* Extra grueso (Black) */
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #000;
+}
+/* Forzamos la primera letra en mayúscula visualmente si lo deseas, 
+   o escríbelo tal cual en el HTML */
+
+/* Párrafo descriptivo */
+.newsletter-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+    padding: 0 20px;
+    line-height: 1.4;
+}
+
+/* Formulario con botón adentro */
+.subscribe-form {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.subscribe-form input {
+    width: 100%;
+    padding: 15px 60px 15px 25px; /* Espacio extra a la derecha para la flecha */
+    border-radius: 50px; /* Forma de píldora */
+    border: 1px solid #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    text-transform: uppercase; /* Para que el placeholder se vea en mayúsculas */
+}
+
+.subscribe-form input::placeholder {
+    color: #888;
+}
+
+/* Botón de flecha */
+.subscribe-form button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%); /* Centrar verticalmente */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s;
+}
+
+.subscribe-form button img {
+    width: 24px; /* Tamaño de la flecha */
+    height: auto;
+}
+
+.subscribe-form button:hover {
+    transform: translateY(-50%) translateX(3px); /* Pequeño movimiento al pasar el mouse */
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .newsletter-section {
+        padding: 60px 20px; /* Menos relleno en celular */
+        background-size: cover; /* En celular es mejor que corte un poco los bordes a que se deforme */
+    }
+    .newsletter-content h2 {
+        font-size: 1.8rem;
+    }
+}
+
+
+/* --- FOOTER --- */
+.main-footer {
+    background-color: #fff; /* Fondo blanco como en tu imagen */
+    color: #000;
+    padding: 60px 0 40px;
+    border-top: 1px solid #eee; /* Una línea sutil arriba */
+    font-size: 0.9rem;
+}
+
+.footer-grid {
+    display: grid;
+    /* 4 columnas: La 1ra y 4ta un poco más anchas, las del centro automáticas */
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr; 
+    gap: 30px;
+    align-items: start;
+}
+
+/* Columna 1: Logo y Copyright */
+.footer-logo {
+    width: 150px; /* Ajusta según el tamaño de tu logo CZM */
+    margin-bottom: 20px;
+    display: block;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #333;
+    margin-top: 30px; /* Empuja el texto hacia abajo */
+}
+
+/* Títulos de secciones (CONTÁCTENOS) */
+.footer-col h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; /* Letra gruesa */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+/* Listas (Redes y Políticas) */
+.social-list, .policy-list {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre cada ítem */
+}
+
+/* Ítems de Redes Sociales */
+.social-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.social-list img {
+    width: 20px; /* Tamaño de iconos de redes */
+    height: 20px;
+    object-fit: contain;
+}
+
+/* Enlaces de Políticas */
+.policy-list a {
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.policy-list a:hover {
+    color: #ff0099; /* Color rosado al pasar el mouse */
+}
+
+/* Columna 4: Libro y Pagos */
+.extra-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinea todo a la derecha */
+    gap: 20px;
+}
+
+.book-link img {
+    width: 180px; /* Ajusta el tamaño de la imagen del libro */
+    border-radius: 5px;
+}
+
+.payment-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* Botón WhatsApp (Verde) */
+.btn-whatsapp {
+    background-color: #25D366;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.payment-icons {
+    display: flex;
+    gap: 8px;
+}
+
+.payment-icons img {
+    height: 25px; /* Altura de los logos de tarjetas/bancos */
+    width: auto;
+}
+
+/* --- RESPONSIVE (Para celulares) --- */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .social-list, .footer-col {
+        align-items: center; /* Centrar todo en móvil */
+    }
+    
+    .extra-col {
+        align-items: center;
+    }
+    
+    .payment-row {
+        justify-content: center;
+    }
+}
