@@ -791,6 +791,67 @@ body {
     width: auto;
 }
 
+
+
+
+/* --- WIDGET LATERAL DE CONTACTO (CORREGIDO) --- */
+.side-contact-widget {
+    /* 1. POSICIONAMIENTO */
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    
+    /* 2. MODO VERTICAL (La clave para que la caja negra tenga el tamaño correcto) */
+    writing-mode: vertical-rl; /* Hace que el flujo sea vertical nativamente */
+    text-orientation: mixed;   /* Mantiene las letras acostadas */
+    
+    /* 3. ESTILO DE LA CAJA */
+    background-color: #000;
+    color: #fff;
+    
+    /* Bordes redondeados solo a la izquierda */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    
+    /* Padding: 30px arriba/abajo (largo), 15px lados (grosor) */
+    padding: 30px 15px; 
+    
+    z-index: 2000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -3px 3px 10px rgba(0,0,0,0.2);
+    
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+.side-contact-widget:hover {
+    transform: translateY(-50%) translateX(-5px); /* Pequeño movimiento al pasar el mouse */
+    background-color: #222;
+}
+
+.side-widget-text {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 1rem;
+    white-space: nowrap;
+    
+    /* 4. DIRECCIÓN DEL TEXTO */
+    /* Por defecto vertical-rl escribe de Arriba a Abajo. 
+       Como tú quieres de Abajo a Arriba (según tu imagen), lo giramos 180 grados */
+    transform: rotate(180deg); 
+}
+/* Efecto al pasar el mouse: la pestaña sale un poquito */
+.side-contact-widget:hover {
+    transform: translateY(-50%) translateX(-5px);
+    background-color: #222; /* Un gris casi negro para el hover */
+}
+
+
+
+
+
 /* --- RESPONSIVE (Para celulares) --- */
 @media (max-width: 768px) {
     .footer-grid {
